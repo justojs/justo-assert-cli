@@ -1,6 +1,6 @@
 {
   "name": "justo-assert-childprocess",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An assertion library for child processes.",
   "homepage": "http://www.justojs.org",
   "license": "MIT",
@@ -74,5 +74,7 @@
     "lib",
     "test"
   ],
-  "scripts": {}
+  "scripts": {
+    "test": "grunt mochaTest:es5"
+  }
 }
