@@ -74,5 +74,7 @@
     "lib",
     "test"
   ],
-  "scripts": {}
+  "scripts": {
+    "test": "grunt mochaTest:es5"
+  }
 }
