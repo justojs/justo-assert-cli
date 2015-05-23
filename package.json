@@ -1,7 +1,7 @@
 {
-  "name": "justo-assert-childprocess",
-  "version": "0.1.1",
-  "description": "An assertion library for child processes.",
+  "name": "justo-assert-cli",
+  "version": "0.2.0",
+  "description": "Assertion library for executed commands.",
   "homepage": "http://www.justojs.org",
   "license": "MIT",
   "author": {
@@ -19,6 +19,7 @@
   "keywords": [
     "assert",
     "assert child process",
+    "assert cli",
     "assert process",
     "Assertion test",
     "Assertion testing",
@@ -41,12 +42,12 @@
     "Unit testing"
   ],
   "bugs": {
-    "url": "https://github.com/JustoJS/justo-assert-childprocess/issues",
+    "url": "https://github.com/justojs/justo-assert-cli/issues",
     "email": "justojs.org@outlook.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JustoJS/justo-assert-childprocess.git"
+    "url": "https://github.com/justojs/justo-assert-cli.git"
   },
   "engines": {
     "node": ">=0.12.0"
@@ -57,16 +58,13 @@
     "grunt": "^0.4.5",
     "grunt-babel": "*",
     "grunt-contrib-clean": "*",
-    "grunt-contrib-compress": "*",
     "grunt-contrib-concat": "*",
     "grunt-contrib-copy": "*",
     "grunt-contrib-jshint": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-mocha-test": "^0.12.7",
+    "grunt-mocha-test": "*",
     "grunt-travis-lint": "*",
     "justo-assert": "*",
-    "justo-assert-file": "*",
-    "mocha": "^2.2.4"
+    "mocha": "*"
   },
   "preferGlobal": false,
   "main": "lib/index.js",
@@ -75,6 +73,6 @@
     "test"
   ],
   "scripts": {
-    "test": "grunt mochaTest:es5"
+    "test": "grunt test"
   }
 }

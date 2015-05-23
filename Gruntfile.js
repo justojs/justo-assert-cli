@@ -5,12 +5,6 @@ module.exports = function(grunt) {
     // Metadata
     pkg: grunt.file.readJSON('package.json'),
 
-    banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-        '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-        '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-        '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-        ' Licensed <%= props.license %> */\n',
-
     // Task configuration
     babel: {
       options: {
@@ -36,7 +30,10 @@ module.exports = function(grunt) {
       },
 
       preCompiler: {
-        src: ["lib/assert/*.*", "lib/main.js"],
+        src: [
+          "lib/index.js",
+          "lib/Result.js"
+        ],
         dest: "build/es5/lib/index.js"
       }
     },
@@ -101,17 +98,16 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks
   grunt.loadNpmTasks("grunt-babel");
   grunt.loadNpmTasks("grunt-contrib-clean");
-  grunt.loadNpmTasks("grunt-contrib-compress");
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks("grunt-mocha-test");
   grunt.loadNpmTasks("grunt-travis-lint");
 
   //aliases
   grunt.registerTask("buildes5", ["travis-lint", "jshint", "clean:es5", "concat:preCompiler", "babel:es5", "copy:nodejs"]);
-  grunt.registerTask("es5", ["buildes5", "mochaTest:es5"]);
+  grunt.registerTask("test", ["mochaTest:es5"]);
+  grunt.registerTask("es5", ["buildes5", "test"]);
 
   // Default task
   grunt.registerTask("default", []);

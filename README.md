@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/JustoJS/justo-assert-childprocess.svg)](https://travis-ci.org/JustoJS/justo-assert-childprocess)
+[![Build Status](https://travis-ci.org/justojs/justo-assert-cli.svg)](https://travis-ci.org/justojs/justo-assert-cli)
 
-An assertion library for child processes.
+Assertion library for executed commands.
 
 *Proudly made in Valencia, Spain, EU.*
 
@@ -11,7 +11,7 @@ Features:
 ## Install
 
 ```
-npm install justo-assert-childprocess
+npm install justo-assert-cli
 ```
 
 ## Table of content
@@ -38,14 +38,14 @@ The `dir` indicates the parent directory and the `file` parameter the file.
 The `args` contains the arguments to pass. And the `opts` parameter contains
 additional info:
 
-- `workDir` (string). The working directory.
+- `workingDir` (string). The working directory.
 - `stdin` (string). The standard input.
 - `env` (object). The environment.
 - `timeout` (number). The maximum amount of time to run, in milliseconds.
 
 The library runs the command and it returns a result object with the following attributes:
 
-- `filePath` (string). The file path.
+- `command` (string). The executed command.
 - `arguments` (string[]). The arguments.
 - `workingDir` (string). The working directory.
 - `pid` (number). The PID.
@@ -58,10 +58,10 @@ The library runs the command and it returns a result object with the following a
 Here are some examples, asserting with `justo-assert`:
 
 ```
-const spawn = require("justo-assert-childprocess").spawn;
+const spawn = require("justo-assert-cli").spawn;
 
 spawn("node", ["-e", "console.log(1+2)"]).must.have({
-  filePath: "node",
+  command: "node",
   arguments: ["-e", "console.log(1+2)"],
   workingDir: undefined,
   stdin: undefined,
@@ -72,7 +72,7 @@ spawn("node", ["-e", "console.log(1+2)"]).must.have({
 });
 
 spawn("node", {stdin: "console.log('Msg'); console.error('Error msg')"}).must.have({
-  filePath: "node",
+  command: "node",
   arguments: [],
   workingDir: undefined,
   stdin: "console.log('Msg'); console.error('Error msg')",
