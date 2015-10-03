@@ -37,36 +37,43 @@ var child_process = require("child_process");
  */
 
 function spawn() {
+  var dir, file, fp, params, opts;
+
+  //(1) arguments
+
   for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
     args[_key] = arguments[_key];
   }
 
-  var dir, file, fp, params, opts;
-
-  //(1) arguments
   if (args.length == 1) {
     file = args[0];
   } else if (args.length == 2) {
     if (args[1] instanceof Array) {
+      ;
       file = args[0];
       params = args[1];
     } else if (typeof args[1] == "string") {
+      ;
       dir = args[0];
       file = args[1];
     } else {
+      ;
       file = args[0];
       opts = args[1];
     }
   } else if (args.length == 3) {
     if (args[1] instanceof Array) {
+      ;
       file = args[0];
       params = args[1];
       opts = args[2];
     } else if (args[2] instanceof Array) {
+      ;
       dir = args[0];
       file = args[1];
       params = args[2];
     } else {
+      ;
       dir = args[0];
       file = args[1];
       opts = args[2];

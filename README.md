@@ -2,7 +2,7 @@
 
 Assertion library for executed commands.
 
-*Proudly made in Valencia, Spain, EU.*
+*Proudly made with ♥ in Valencia, Spain, EU.*
 
 Features:
 
